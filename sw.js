@@ -1,7 +1,7 @@
-// Gerado no build. Versão 645c7eb1e43f
-const CACHE = "ba-baby-645c7eb1e43f";
-const TILES = "ba-baby-tiles";
-const ASSETS = ["./","./assets/index-BFp-rcww.js","./assets/caveat-latin-600-normal-DUjB8dgm.woff","./assets/caveat-latin-600-normal-zlTlWIYU.woff2","./assets/dancing-script-latin-700-normal-CX8AaSVl.woff2","./assets/dancing-script-latin-700-normal-LI5MgW9m.woff","./assets/index-DfQS1Lz0.css","./assets/poppins-latin-400-normal-BOb3E3N0.woff","./assets/poppins-latin-400-normal-cpxAROuN.woff2","./assets/poppins-latin-600-normal-BJdTmd5m.woff","./assets/poppins-latin-600-normal-zEkxB9Mr.woff2","./assets/poppins-latin-700-normal-BVuQR_eA.woff","./assets/poppins-latin-700-normal-Qrb0O0WB.woff2","./assets/poppins-latin-800-normal-Bd8-pIP1.woff2","./assets/poppins-latin-800-normal-YoItoZZV.woff","./manifest.webmanifest","./icons/icon-192.png","./icons/icon-512.png","./icons/icon-maskable-512.png","./icons/apple-touch-icon.png"];
+// Gerado no build. Versão addc6758fed7
+const CACHE = "ba-baby-addc6758fed7";
+const TILES = "ba-baby-tiles-osm";
+const ASSETS = ["./","./assets/index-D0uyi2x6.js","./assets/caveat-latin-600-normal-DUjB8dgm.woff","./assets/caveat-latin-600-normal-zlTlWIYU.woff2","./assets/dancing-script-latin-700-normal-CX8AaSVl.woff2","./assets/dancing-script-latin-700-normal-LI5MgW9m.woff","./assets/index-BALSHesm.css","./assets/poppins-latin-400-normal-BOb3E3N0.woff","./assets/poppins-latin-400-normal-cpxAROuN.woff2","./assets/poppins-latin-600-normal-BJdTmd5m.woff","./assets/poppins-latin-600-normal-zEkxB9Mr.woff2","./assets/poppins-latin-700-normal-BVuQR_eA.woff","./assets/poppins-latin-700-normal-Qrb0O0WB.woff2","./assets/poppins-latin-800-normal-Bd8-pIP1.woff2","./assets/poppins-latin-800-normal-YoItoZZV.woff","./assets/special-elite-latin-400-normal-BtSRmyJ6.woff","./assets/special-elite-latin-400-normal-YjDd9tmf.woff2","./assets/titan-one-latin-400-normal-DwVbh4mi.woff2","./assets/titan-one-latin-400-normal-VZVzRR2h.woff","./manifest.webmanifest","./icons/icon-192.png","./icons/icon-512.png","./icons/icon-maskable-512.png","./icons/apple-touch-icon.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
@@ -35,7 +35,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (url.hostname.endsWith("basemaps.cartocdn.com")) {
+  if (url.hostname === "tile.openstreetmap.org") {
     // Mapa: rede primeiro, cache como reserva para quando estiver sem sinal.
     event.respondWith(
       caches.open(TILES).then(async (cache) => {
